@@ -7,30 +7,64 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class AppTest {
     @Test
     public void testFound() {
-       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-       assertTrue(App.searchForMedianOfThreeInt(array, 1,2,3));
+       ArrayList<Double> array = new ArrayList<Double>();
+       array.add(1.0);
+       array.add(2.2);
+       array.add(5.6);
+       array.add(7.7);
+       assertTrue(App.searchForMeanOfThreeInt(array, 2.1,2.2,2.3));
      }
  
-     @Test
-     public void testNotFound() {
-       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-       assertFalse(App.searchForMedianOfThreeInt(array, 100, 103, 105));
-     }
+    @Test
+    public void testNotFound() {
+       ArrayList<Double> array = new ArrayList<>();
+       array.add(-1.1);
+       array.add(-3.2);
+       array.add(5.0);
+       array.add(4.9);
+       assertFalse(App.searchForMeanOfThreeInt(array, 100.0, 103.3, 105.2));
+    }
  
-     @Test
-     public void testEmptyArray() {
-       ArrayList<Integer> array = new ArrayList<>();
-       assertFalse(App.searchForMedianOfThreeInt(array, 4,5,6));
-     }
+    @Test
+    public void testEmptyArray() {
+       ArrayList<Double> array = new ArrayList<>();
+       assertFalse(App.searchForMeanOfThreeInt(array, 4.4,5.4,6.1));
+    }
  
+    @Test
+    public void testNullForArrayList() {
+       assertFalse(App.searchForMeanOfThreeInt(null, 1.3,2.4,3.5));
+    }
+
+    @Test
+     public void testNullForDoubles1() {
+        ArrayList<Double> array = new ArrayList<>();
+        array.add(3.3);
+        array.add(6.6);
+        array.add(9.9);
+        assertFalse(App.searchForMeanOfThreeInt(array, null, 2.3, 3.4));
+     }
+    
      @Test
-     public void testNull() {
-       assertFalse(App.searchForMedianOfThreeInt(null, 1,2,3));
+     public void testNullForDoubles2() {
+        ArrayList<Double> array = new ArrayList<>();
+        array.add(3.3);
+        array.add(6.6);
+        array.add(9.9);
+        assertFalse(App.searchForMeanOfThreeInt(array, 1.3, null, 1.4));
+     }
+     
+     @Test
+     public void testNullForDoubles3() {
+        ArrayList<Double> array = new ArrayList<>();
+        array.add(3.3);
+        array.add(6.6);
+        array.add(9.9);
+        assertFalse(App.searchForMeanOfThreeInt(array, 2.3, 3.2, null));
      }
  
 }
