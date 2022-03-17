@@ -44,8 +44,8 @@ public class App {
 
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "Hello, Welcome to My Website\n Compute page of this website consists of two inputs where in the left side-box you can enter as many as numbers as you want (it can be a floating point number)" +
-          "\nOn the right hand side you should add three numbers to compute it's mean and check whether it is contained on the list of nummbers you wrote on the left side-input.\n" +
+        get("/", (req, res) -> "Hello, Welcome to My Website\n Compute page of this website consists of two inputs where in the left side-box you can enter as many as numbers as you want. (it can be a floating point number)\n" +
+          "On the right hand side you should add three numbers to compute it's mean and check whether it is contained on the list of numbers you wrote on the left side-input.\n" +
           "Please be aware the only the first three numbers will be considered on the right hand size inputs.");
 
         post("/compute", (req, res) -> {
