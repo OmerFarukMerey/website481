@@ -35,7 +35,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        Logger logger = LogManager.getLogger(App.class.getName());
+        Logger logger = LogManager.getLogger(App.class);
         logger.error("An Error has Occured!");
 
         port(getHerokuAssignedPort());
